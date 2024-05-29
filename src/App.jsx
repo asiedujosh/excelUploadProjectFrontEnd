@@ -8,10 +8,12 @@ import {
 import Dashboard from "./pages/dashboard"
 import Home from "./pages/home"
 import Login from "./pages/login"
+import ComingSoon from "./pages/comingSoon"
 import "./App.css"
 
 const Data = React.lazy(() => import("./pages/data"))
 const AddData = React.lazy(() => import("./pages/addData"))
+const ViewData = React.lazy(() => import("./pages/viewData"))
 
 function App() {
   return (
@@ -36,6 +38,15 @@ function App() {
               </React.Suspense>
             }
           />
+          <Route
+            path="viewRecords/:id"
+            element={
+              <React.Suspense fallback={<div>Loading...</div>}>
+                <ViewData />
+              </React.Suspense>
+            }
+          />
+          <Route path="workInProgress" element={<ComingSoon />} />
         </Route>
       </Routes>
     </Router>

@@ -2,7 +2,7 @@ import DataTableContainer from "../components/dataTableContainer"
 
 const Data = () => {
   return (
-    <div>
+    <div className="w-full flex">
       <DataTableContainer />
     </div>
   )

@@ -7,8 +7,8 @@ const DataTable = () => {
 
   return (
     <>
-      <table className="w-full table-auto rounded">
-        <thead className="sticky top-0 z-10 bg-gray-100">
+      <table className="table-auto rounded">
+        <thead className="bg-gray-100">
           <tr>
             {DATATABLE.map((item) => (
               <th className="border border-gray-200 py-4 px-2">{item}</th>

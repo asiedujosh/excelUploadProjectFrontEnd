@@ -2,15 +2,15 @@ import { useContext, useEffect, useState } from "react"
 import PaginationContainer from "./paginationContainer"
 import { DataApiData } from "../contextApi/data/dataContextApi"
 import SearchContainer from "./searchContainer"
-import DataTable from "./dataTable"
+import RecordTable from "./recordTable"
 
-const DataTableContainer = () => {
-  const { paginationData, processSearchData, processGetAllData } =
+const RecordTableContainer = () => {
+  const { paginationData, processSearchData, processGetAllRecords } =
     useContext(DataApiData)
   const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
-    processGetAllData()
+    processGetAllRecords()
   }, [])
 
   const handleSearchChange = (data) => {
@@ -22,25 +22,16 @@ const DataTableContainer = () => {
   }
 
   return (
-    <div className="bg-white rounded shadow-lg">
-      <SearchContainer
-        value={searchTerm}
-        change={(data) => {
-          handleSearchChange(data)
-        }}
-        submitSearch={() => {
-          handleSearchSubmit()
-        }}
-      />
-      <div className="">
-        <DataTable />
+    <div className="w-90 m-6 p-4 bg-white rounded shadow-lg">
+      <div className="overflow-auto">
+        <RecordTable />
       </div>
       <PaginationContainer
         paginationData={paginationData}
-        paginationFunction={processGetAllData}
+        paginationFunction={processGetAllRecords}
       />
     </div>
   )
 }
 
-export default DataTableContainer
+export default RecordTableContainer

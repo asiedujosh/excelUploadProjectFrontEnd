@@ -37,11 +37,15 @@ const Dashboard = () => {
 
   return (
     <div className="flex h-screen">
-      <Sidebar />
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <Navbar />
+      <div className="w-1/6">
+        <Sidebar />
+      </div>
+      <div className="flex-1 flex flex-col bg-gray-100">
+        {/* <Navbar /> */}
         <div className="p-4 flex-1 overflow-y-auto">
-          <Outlet />
+          <div className="w-5/6 absolute">
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>
